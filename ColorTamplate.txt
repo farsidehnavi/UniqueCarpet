@@ -1,0 +1,35 @@
+Color Palette
+
+Use warm, deep, earthy tones. Handmade carpets survive centuries for a reason; they don’t scream for attention, they sit there quietly judging your furniture.
+
+Primary Colors
+
+Deep Ruby / Persian Red
+#8B1E1E
+Warm, classic, instantly signals “handcrafted tradition.”
+
+Antique Gold
+#C49A51
+Works for headings, accents, borders, and subtle highlights.
+
+Secondary Colors
+
+Midnight Teal
+#0F3E3E
+Dark enough for elegant contrast. Great for navbars or footers.
+
+Carpet Brown
+#4A2E1F
+Your “neutral anchor.” Works for text if you avoid using pure black.
+
+Background Colors
+
+Cream / Parchment
+#F5EEDF
+Gives an old-world, handcrafted feel.
+
+Soft Earth Gray
+#E3D7C5
+For cards, product boxes, section backgrounds.
+
+If you mix these properly, you get a website that feels like tea-stained paper, hand-knotted wool, and slightly overpriced craftsmanship. Perfect.

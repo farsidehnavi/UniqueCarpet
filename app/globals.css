@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  /* font-family: MyFont !important; */
+  background-color: #f5eedf;
+  color: #4a2e1f;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Targeting the scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track styling (background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle styling */
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/* @font-face {
+    font-family: 'MyFont';
+    src: url('/font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */

@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Round';
+  src: url('/fonts/round.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: Cinzel !important;
+}

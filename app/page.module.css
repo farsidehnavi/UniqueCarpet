@@ -1,0 +1,128 @@
+.Main {
+  position: relative;
+  width: 98dvw;
+  min-height: 100dvh;
+  overflow-y: scroll;
+}
+
+.Image {
+  width: 100vw;
+  margin-top: -8rem;
+  margin-left: -3vw;
+}
+
+.Card {
+  rotate: 180deg;
+  align-self: left;
+  margin-top: -5vh;
+}
+
+.Text {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.5rem;
+  max-width: 150vh;
+  justify-self: center;
+}
+
+.Pr1 {
+  font-size: 2rem;
+  place-self: center;
+  margin: 0;
+  font-family: Round;
+}
+
+.Pr2 {
+  font-size: 1.5rem;
+  color: #c49a51;
+  margin: 0;
+}
+
+.Pr3 {
+  font-size: larger;
+}
+
+.MenuBar {
+  display: flex;
+  margin: 0 20vw;
+}
+
+.Item {
+  border: none;
+  background-color: transparent;
+  border-right: solid #8b1e1e 1px;
+  padding: 0.5rem 2rem;
+  font-size: large;
+  color: #8b1e1e;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.Icon {
+  place-self: center;
+}
+
+.ButtonTitle {
+  margin: 0;
+}
+
+.Name {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  place-self: center;
+}
+
+.Logo {
+  place-self: end;
+  margin-bottom: -0.8rem;
+  padding: 0 0.5rem;
+}
+
+.ImageParent {
+  height: 60vh;
+}
+
+.wrapper {
+  width: 100%;
+  fill: #f5eedf; /* top dark bar */
+  overflow: hidden;
+}
+
+.svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+  margin-bottom: -20px;
+}
+
+.top {
+  background-color: f5eedf; /* bottom background color */
+}
+
+.bottom {
+  fill: url(#patternFill);
+}
+
+.wrapperE {
+  width: 100%;
+  background-color: #f5eedf;
+  overflow: hidden;
+}
+
+.svgE {
+  width: 100%;
+  height: 120px;
+  display: block;
+  margin-top: -20px;
+}
+
+.topE {
+  fill: url(#patternFill);
+}
+
+.bottomE {
+  fill: #f5eedf;
+}
