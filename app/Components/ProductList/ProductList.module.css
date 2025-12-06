@@ -1,0 +1,63 @@
+.Main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(./../../../public/img/template.svg);
+  place-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  color: #fff;
+}
+
+.HeadText {
+  place-self: center;
+  margin: 0;
+  font-size: larger;
+}
+
+.CardsParent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  place-self: center;
+}
+
+.GlassCard {
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  color: #fff;
+  width: 15vw;
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+}
+
+.ItemImage {
+  place-self: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (max-aspect-ratio:1.2/1) {
+  .CardsParent {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .GlassCard {
+    width: 25vw;
+  }
+}
+
+@media (max-aspect-ratio:1/1.1) {
+  .CardsParent {
+    grid-template-columns: 1fr;
+  }
+
+  .GlassCard {
+    width: 70vw;
+  }
+}

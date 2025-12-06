@@ -1,8 +1,13 @@
 'use client'
 
 import style from './ProductList.module.css'
+import { useState } from 'react';
 
-const ProductList = ({data}) => {
+const ProductList = ({ data }) => {
+
+  // State
+  const [SecondStepId, setSecondStepId] = useState(null)
+
   return (<div className={style.Main}>
     <p className={style.HeadText}>Explore products</p>
     <div className={style.CardsParent}>
@@ -12,7 +17,7 @@ const ProductList = ({data}) => {
             className={style.GlassCard}
             key={k}
             onClick={() => {
-              SecondStepId = v.id;
+              setSecondStepId(v.id);
             }}
           >
             {v.image_url[0] ? (
@@ -29,8 +34,8 @@ const ProductList = ({data}) => {
         )
       )}
     </div>
-  </div> );
+  </div>);
 }
- 
+
 export default ProductList;
-  
+

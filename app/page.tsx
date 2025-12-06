@@ -3,9 +3,43 @@ import style from "./page.module.css";
 import "./font.css";
 import "./globals.css";
 import { FaSearch, FaPhone } from "react-icons/fa";
-import ProductList from "./Components/ProductList/ProductList";
+import ProductList from "./Components/ProductFetcher/ProductFetcher";
+import ProductFetcher from "./Components/ProductFetcher/ProductFetcher";
 
 export default function Home() {
+
+  const T1 = `Handmade Persian rugs and carpets are the most durable and exquisite
+            oriental carpets and also Iran's unique and unmatchable handicrafts,
+            used for the interior of ordinary people's houses or great kings'
+            courts for centuries. Persian people weave their dreams,
+            imaginations, stories, myths, and everything inside their inner
+            world on looms of different forms and sizes all over Iran. Handmade
+            Persian carpets symbolize a magical, abstract world of beliefs and
+            desires; that's why each has a particular identity and touches
+            people's souls. They are tied in with Persian life and traditions
+            and have hundreds of patterns and many styles. Each region, city,
+            and village in Iran has different types of Persian rugs, creating a
+            live handmade carpet with natural fibers that they provide from
+            their herd or cotton farms. Everything about Persian hand-woven
+            carpets is related to the pure nature of Iran. Their stunning colors
+            represent people's feelings and passions. They are extracted from
+            beautiful and aromatic plants, are highly durable, and even get
+            brighter as time passes. Persian rustic and tribal handmade carpets
+            and rugs may have some irregularities but are so lovable worldwide
+            as they are made by nomads and tribes on their small and medium
+            handmade looms and designed by their wild souls' imaginations.
+            Persian handmade rugs of cities are woven splendidly, with a more
+            ordered structure, tiny knots and delicate designs full of mazes of
+            plant branches and heaven's birds flying among them or mystical
+            abstract leaves and flowers. The fantastic world of handmade Persian
+            rugs still remains undiscovered between oriental rugs. There are
+            some regions in this land where unique rugs are woven by local
+            people with remarkable patterns and textures that remain unknown.
+            Handmade Persian carpets were an excellent investment for the
+            country for more than 400 years; they are still a valuable
+            handicraft worth investing in, collecting, and decorating any
+            interiors with them!`
+
   return (
     <>
       <div className={style.Main}>
@@ -41,37 +75,7 @@ export default function Home() {
             Handmade Persian Rugs: One of The Most Valuable Oriental Carpets
           </p>
           <p className={style.Pr3}>
-            Handmade Persian rugs and carpets are the most durable and exquisite
-            oriental carpets and also Iran's unique and unmatchable handicrafts,
-            used for the interior of ordinary people's houses or great kings'
-            courts for centuries. Persian people weave their dreams,
-            imaginations, stories, myths, and everything inside their inner
-            world on looms of different forms and sizes all over Iran. Handmade
-            Persian carpets symbolize a magical, abstract world of beliefs and
-            desires; that's why each has a particular identity and touches
-            people's souls. They are tied in with Persian life and traditions
-            and have hundreds of patterns and many styles. Each region, city,
-            and village in Iran has different types of Persian rugs, creating a
-            live handmade carpet with natural fibers that they provide from
-            their herd or cotton farms. Everything about Persian hand-woven
-            carpets is related to the pure nature of Iran. Their stunning colors
-            represent people's feelings and passions. They are extracted from
-            beautiful and aromatic plants, are highly durable, and even get
-            brighter as time passes. Persian rustic and tribal handmade carpets
-            and rugs may have some irregularities but are so lovable worldwide
-            as they are made by nomads and tribes on their small and medium
-            handmade looms and designed by their wild souls' imaginations.
-            Persian handmade rugs of cities are woven splendidly, with a more
-            ordered structure, tiny knots and delicate designs full of mazes of
-            plant branches and heaven's birds flying among them or mystical
-            abstract leaves and flowers. The fantastic world of handmade Persian
-            rugs still remains undiscovered between oriental rugs. There are
-            some regions in this land where unique rugs are woven by local
-            people with remarkable patterns and textures that remain unknown.
-            Handmade Persian carpets were an excellent investment for the
-            country for more than 400 years; they are still a valuable
-            handicraft worth investing in, collecting, and decorating any
-            interiors with them!
+            {T1}
           </p>
         </div>
         <Image
@@ -114,7 +118,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <ProductList />
+      <ProductFetcher />
       <div className={style.wrapperE}>
         <svg
           className={style.svgE}
@@ -126,8 +130,8 @@ export default function Home() {
             <pattern
               id="patternFill"
               patternUnits="userSpaceOnUse"
-              width="60"
-              height="60"
+              width="160"
+              height="160"
             >
               <image href="/img/template.svg" width="60" height="60" />
             </pattern>
