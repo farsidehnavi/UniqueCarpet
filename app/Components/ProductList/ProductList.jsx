@@ -24,8 +24,7 @@ const ProductList = ({ data }) => {
               <img
                 className={style.ItemImage}
                 src={
-                  "https://carpet-back-end.vercel.app/img/images/" +
-                  v.image_url[0]
+                  "https://carpet-back-end.vercel.app/img/images/" + v.image_url[0]
                 }
               />
             ) : null}

@@ -3,11 +3,11 @@ import style from "./page.module.css";
 import "./font.css";
 import "./globals.css";
 import { FaSearch, FaPhone } from "react-icons/fa";
-import ProductList from "./Components/ProductFetcher/ProductFetcher";
+// import ProductList from "./Components/ProductFetcher/ProductFetcher";
 import ProductFetcher from "./Components/ProductFetcher/ProductFetcher";
 
 export default function Home() {
-
+  console.log('page')
   const T1 = `Handmade Persian rugs and carpets are the most durable and exquisite
             oriental carpets and also Iran's unique and unmatchable handicrafts,
             used for the interior of ordinary people's houses or great kings'
@@ -38,7 +38,7 @@ export default function Home() {
             Handmade Persian carpets were an excellent investment for the
             country for more than 400 years; they are still a valuable
             handicraft worth investing in, collecting, and decorating any
-            interiors with them!`
+            interiors with them!`;
 
   return (
     <>
@@ -74,9 +74,7 @@ export default function Home() {
           <p className={style.Pr2}>
             Handmade Persian Rugs: One of The Most Valuable Oriental Carpets
           </p>
-          <p className={style.Pr3}>
-            {T1}
-          </p>
+          <p className={style.Pr3}>{T1}</p>
         </div>
         <Image
           src={"img/card.svg"}
@@ -97,10 +95,17 @@ export default function Home() {
             <pattern
               id="patternFill"
               patternUnits="userSpaceOnUse"
+              patternContentUnits="userSpaceOnUse"
               width="60"
               height="60"
+              patternTransform="scale(1,2)"
             >
-              <image href="/img/template.svg" width="60" height="60" />
+              <image
+                href="/img/template.svg"
+                width="60"
+                height="60"
+                preserveAspectRatio="xMidYMid slice"
+              />
             </pattern>
           </defs>
           <rect x="0" y="0" width="1000" height="60" className={style.top} />
