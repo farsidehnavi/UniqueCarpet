@@ -3,11 +3,10 @@ import style from "./page.module.css";
 import "./font.css";
 import "./globals.css";
 import { FaSearch, FaPhone } from "react-icons/fa";
-// import ProductList from "./Components/ProductFetcher/ProductFetcher";
 import ProductFetcher from "./Components/ProductFetcher/ProductFetcher";
 
 export default function Home() {
-  console.log('page')
+  console.log("page");
   const T1 = `Handmade Persian rugs and carpets are the most durable and exquisite
             oriental carpets and also Iran's unique and unmatchable handicrafts,
             used for the interior of ordinary people's houses or great kings'
@@ -150,15 +149,16 @@ export default function Home() {
             className={style.bottomE}
           />
           <path
-            d="M0 60
-        L200 60
-        L250 10
-        L750 10
-        L800 60
-        L1000 60
-        L1000 0
-        L0 0
-        Z"
+            d="M1000 120
+            L800 120
+            L750 70
+            L250 70
+            L200 120
+            L0 120
+            L0 60
+            L1000 60
+            Z
+            "
             className={style.topE}
           />
         </svg>

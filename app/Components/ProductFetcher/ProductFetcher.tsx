@@ -26,9 +26,6 @@ const ProductFetcher = async () => {
   const res = (await fetch('https://carpet-back-end.vercel.app/category/allFront'))
   const data: resault = await res.json()
 
-  console.log(res);
-
-
   return (
     <ProductList data={data} />
   );

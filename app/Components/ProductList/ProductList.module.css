@@ -35,6 +35,7 @@
   width: 15vw;
   display: grid;
   grid-template-rows: 5fr 1fr;
+  cursor: pointer;
 }
 
 .ItemImage {
