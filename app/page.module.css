@@ -6,9 +6,8 @@
 }
 
 .Image {
-  width: 100vw;
-  margin-top: -8rem;
-  margin-left: -3vw;
+  width: 90vw;
+  place-self: center;
 }
 
 .Card {
@@ -28,38 +27,39 @@
 }
 
 .Pr1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   place-self: center;
   margin: 0;
   font-family: Round;
 }
 
 .Pr2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #c49a51;
   margin: 0;
   place-self: start;
 }
 
 .Pr3 {
-  font-size: larger;
+  font-size: .9375rem;
 }
 
 .MenuBar {
   display: flex;
-  margin: 0 20vw;
+  margin: 1rem;
+  gap: 1rem;
 }
 
 .Item {
   border: none;
   background-color: transparent;
-  border-right: solid #8b1e1e 1px;
-  padding: 0.5rem 2rem;
-  font-size: large;
+  /* border-right: solid #8b1e1e 1px; */
+  /* padding: 0.5rem 2rem; */
+  font-size: .9375rem;
   color: #8b1e1e;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  cursor: pointer;
 }
 
 .Icon {
@@ -170,6 +170,10 @@
 }
 
 @media (max-aspect-ratio: 1/1.1) {
+  .Image {
+    display: none;
+  }
+
   .bottom {
     d: path(
       "M0 60 L200 60 L250 80 L750 80 L800 60 L1000 60 L1000 100 L0 100 Z"

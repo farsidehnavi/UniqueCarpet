@@ -8,7 +8,8 @@ import {
   FaWhatsapp,
   FaTelegram,
   FaAt,
-  FaMap
+  FaMapMarker,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import ProductFetcher from "./Components/ProductFetcher/ProductFetcher";
 
@@ -49,7 +50,7 @@ export default function Home() {
     <>
       <div className={style.Main}>
         <Image
-          src={"/img/FinalBg.png"}
+          src={"/img/FinalBg3.png"}
           alt=""
           width={853}
           height={288}
@@ -57,11 +58,11 @@ export default function Home() {
         />
         <div className={style.MenuBar}>
           <button className={style.Item}>
-            <FaSearch className={style.Icon} />
+            {/* <FaSearch className={style.Icon} /> */}
             <p className={style.ButtonTitle}>Explore products</p>
           </button>
           <button className={style.Item}>
-            <FaPhone className={style.Icon} />
+            {/* <FaPhone className={style.Icon} /> */}
             <p className={style.ButtonTitle}>Contact us</p>
           </button>
         </div>
@@ -235,7 +236,8 @@ export default function Home() {
                 <FaWhatsapp className={style.ConnectionButton} />
                 <FaTelegram className={style.ConnectionButton} />
                 <FaAt className={style.ConnectionButton} />
-                <FaMap className={style.ConnectionButton} />
+                <FaMapMarker className={style.ConnectionButton} />
+                <FaPhoneAlt className={style.ConnectionButton} />
               </div>
             </div>
             {/* <div className={style.InnerFlex}>
