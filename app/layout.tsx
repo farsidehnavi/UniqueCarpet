@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
 import './globals.css'
-// import localFont from "next/font/local";
 
-// export const myFont = localFont({
-//   src: [
-//     {
-//       path: "./font.ttf",
-//       weight: "400",
-//       style: "normal",
-//     },
-//     {
-//       path: "./../public/secendry.ttf",
-//       weight: "400",
-//       style: "normal",
-//     },
-//   ],
-// });
+export const metadata: Metadata = {
+  title: 'Unique Carpet',
+  icons: '/img/logo.svg'
+}
 
 
 export default function RootLayout({

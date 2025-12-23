@@ -19,7 +19,7 @@ const ProductList = ({ data }) => {
     switch (queryParsed.length) {
       case 1:
         console.log(1);
-        ShowList = data.Categories.filter((v) => v.parent_id == queryParsed[0]);        
+        ShowList = data.Categories.filter((v) => v.parent_id == queryParsed[0]);
         break;
       case 2:
         console.log(2);
@@ -44,7 +44,7 @@ const ProductList = ({ data }) => {
       const queryParsed = JSON.parse(query);
       switch (queryParsed.length) {
         case 1:
-          params.set("parent_id", JSON.stringify([query[0],selectedId]));
+          params.set("parent_id", JSON.stringify([query[0], selectedId]));
           break;
         case 2:
           break;
@@ -61,28 +61,34 @@ const ProductList = ({ data }) => {
   return (
     <div className={style.Main}>
       <p className={style.HeadText}>Explore products</p>
-      <div className={style.CardsParent}>
-        {ShowList.map((v, k) => (
-          <div
-            className={style.GlassCard}
-            key={k}
-            onClick={() => {
-              Operator(v.id);
-            }}
-          >
-            {v.image_url[0] ? (
-              <img
-                className={style.ItemImage}
-                src={
-                  "https://carpet-back-end.vercel.app/img/images/" +
-                  v.image_url[0]
-                }
-              />
-            ) : null}
-            <p className={style.Title}>{v.name}</p>
+      {ShowList.length ? (
+        <>
+          <div className={style.CardsParent}>
+            {ShowList.map((v, k) => (
+              <div
+                className={style.GlassCard}
+                key={k}
+                onClick={() => {
+                  Operator(v.id);
+                }}
+              >
+                {v.image_url[0] ? (
+                  <img
+                    className={style.ItemImage}
+                    src={
+                      "https://carpet-back-end.vercel.app/img/images/" +
+                      v.image_url[0]
+                    }
+                  />
+                ) : null}
+                <p className={style.Title}>{v.name}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      ) : (
+        <p className={style.NotFound}>Sorry, Nothing found.</p>
+      )}
     </div>
   );
 };

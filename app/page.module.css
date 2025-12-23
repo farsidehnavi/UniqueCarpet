@@ -24,6 +24,7 @@
   gap: 0.5rem;
   max-width: 150vh;
   justify-self: center;
+  place-items: center;
 }
 
 .Pr1 {
@@ -37,6 +38,7 @@
   font-size: 1.5rem;
   color: #c49a51;
   margin: 0;
+  place-self: start;
 }
 
 .Pr3 {
@@ -72,7 +74,7 @@
   display: flex;
   flex-direction: column;
   width: fit-content;
-  place-self: center;
+  /* place-self: center; */
 }
 
 .Logo {
@@ -127,6 +129,46 @@
   fill: #f5eedf;
 }
 
+.ContactUsParent {
+  width: 100%;
+  background-image: url(./../public/img/template.svg);
+  background-size: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  color: #fff;
+  gap: 1rem;
+}
+
+.ContactUs {
+  display: flex;
+  place-content: start;
+  gap: 1rem;
+}
+
+.HeadText {
+  font-size: small;
+}
+
+.TitleBox {
+  padding: 2rem;
+}
+
+.ConnectionIcons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  gap: .5rem;
+}
+
+.ConnectionButton {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 1000px;
+  border: #fff 1px solid;
+  padding: .3rem;
+}
+
 @media (max-aspect-ratio: 1/1.1) {
   .bottom {
     d: path(
@@ -136,7 +178,7 @@
 
   .topE {
     d: path(
-      "M0 100 L200 100 L250 80 L750 80 L800 100 L1000 100 L1000 60 L0 60 Z"
+      "M1000 100 L800 100 L750 80 L250 80 L200 100 L0 100 L0 60 L1000 60 Z"
     )
   }
 }

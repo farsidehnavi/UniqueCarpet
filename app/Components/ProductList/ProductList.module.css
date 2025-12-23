@@ -63,3 +63,8 @@
     width: 70vw;
   }
 }
+
+.NotFound {
+  place-self: center;
+  font-size: small;
+}
