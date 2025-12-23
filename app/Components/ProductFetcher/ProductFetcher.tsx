@@ -1,4 +1,5 @@
-import ProductList from './../ProductList/ProductList'
+import ProductList from "./../ProductList/ProductList";
+import { Suspense } from "react";
 
 type resault = {
   Status: number;
@@ -8,7 +9,7 @@ type resault = {
       name: string;
       image_url?: string[];
       parent_id?: number;
-    }
+    },
   ];
   Products: [
     {
@@ -18,16 +19,22 @@ type resault = {
       parent_id: number;
       description: string;
       price: number;
-    }
+    },
   ];
-}
+};
 
 const ProductFetcher = async () => {
-  const res = (await fetch('https://carpet-back-end.vercel.app/category/allFront'))
-  const data: resault = await res.json()
+  console.log("ProductFetcher");
+
+  const res = await fetch(
+    "https://carpet-back-end.vercel.app/category/allFront"
+  );
+  const data: resault = await res.json();
 
   return (
-    <ProductList data={data} />
+    <Suspense fallback={<>Loading ...</>}>
+      <ProductList data={data} />
+    </Suspense>
   );
 };
 export default ProductFetcher;
