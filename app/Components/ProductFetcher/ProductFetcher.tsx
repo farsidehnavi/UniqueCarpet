@@ -24,7 +24,6 @@ type resault = {
 };
 
 const ProductFetcher = async () => {
-  console.log("ProductFetcher");
 
   const res = await fetch(
     "https://carpet-back-end.vercel.app/category/allFront"
