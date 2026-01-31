@@ -58,11 +58,9 @@ export default function Home() {
         />
         <div className={style.MenuBar}>
           <button className={style.Item}>
-            {/* <FaSearch className={style.Icon} /> */}
             <p className={style.ButtonTitle}>Explore products</p>
           </button>
           <button className={style.Item}>
-            {/* <FaPhone className={style.Icon} /> */}
             <p className={style.ButtonTitle}>Contact us</p>
           </button>
         </div>

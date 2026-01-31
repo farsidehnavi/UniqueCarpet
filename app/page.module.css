@@ -48,17 +48,25 @@
   display: flex;
   margin: 1rem;
   gap: 1rem;
+  place-content: space-between;
 }
 
 .Item {
   border: none;
   background-color: transparent;
-  /* border-right: solid #8b1e1e 1px; */
-  /* padding: 0.5rem 2rem; */
+  border: solid #8b1e1e 1px;
   font-size: .9375rem;
   color: #8b1e1e;
-  /* display: flex; */
-  /* justify-content: space-between; */
+  cursor: pointer;
+  background: rgba(139,30,30,0.10);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  display: grid;
+  grid-template-rows: 5fr 1fr;
   cursor: pointer;
 }
 
