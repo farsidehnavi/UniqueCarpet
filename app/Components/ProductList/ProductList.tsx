@@ -8,7 +8,7 @@ import { FaArrowLeft } from "react-icons/fa";
 type ProductOrCategory = {
   id: number;
   name: string;
-  image_url?: string[];
+  image_url: string[];
   parent_id?: number;
   description?: string;
   price?: number;

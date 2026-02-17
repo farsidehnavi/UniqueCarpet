@@ -2,26 +2,19 @@ import { redirect } from "react-router-dom";
 import ProductList from "./../ProductList/ProductList";
 import { Suspense } from "react";
 
+type ProductOrCategory = {
+  id: number;
+  name: string;
+  image_url: string[];
+  parent_id?: number;
+  description?: string;
+  price?: number;
+};
+
 type Result = {
   Status: number;
-  Categories: [
-    {
-      id: number;
-      name: string;
-      image_url?: string[];
-      parent_id?: number;
-    },
-  ];
-  Products: [
-    {
-      id: number;
-      name: string;
-      image_url?: number;
-      parent_id: number;
-      description: string;
-      price: number;
-    },
-  ];
+  Categories: ProductOrCategory[];
+  Products: ProductOrCategory[];
 };
 
 async function getProducts(): Promise<Result> {
