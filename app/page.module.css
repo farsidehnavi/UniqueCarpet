@@ -46,37 +46,11 @@
 
 .MenuBar {
   display: flex;
-  margin: 1rem;
+  margin: 1rem 7vw -10vh 7vw;
   gap: 1rem;
   place-content: space-between;
 }
 
-.Item {
-  border: none;
-  background-color: transparent;
-  border: solid #8b1e1e 1px;
-  font-size: .9375rem;
-  color: #8b1e1e;
-  cursor: pointer;
-  background: rgba(139,30,30,0.10);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 20px;
-  padding: 25px;
-  border: 1px solid rgba(255,255,255,0.4);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
-  display: grid;
-  grid-template-rows: 5fr 1fr;
-  cursor: pointer;
-}
-
-.Icon {
-  place-self: center;
-}
-
-.ButtonTitle {
-  margin: 0;
-}
 
 .Name {
   display: flex;
@@ -192,5 +166,9 @@
     d: path(
       "M1000 100 L800 100 L750 80 L250 80 L200 100 L0 100 L0 60 L1000 60 Z"
     )
+  }
+
+  .MenuBar {
+    margin: 1rem;
   }
 }

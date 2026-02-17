@@ -3,8 +3,6 @@ import style from "./page.module.css";
 import "./font.css";
 import "./globals.css";
 import {
-  FaSearch,
-  FaPhone,
   FaWhatsapp,
   FaTelegram,
   FaAt,
@@ -12,6 +10,7 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import ProductFetcher from "./Components/ProductFetcher/ProductFetcher";
+import MenuBar from './Components/MenuBar/MenuBar'
 
 export default function Home() {
   const T1 = `Handmade Persian rugs and carpets are the most durable and exquisite
@@ -57,12 +56,7 @@ export default function Home() {
           className={style.Image}
         />
         <div className={style.MenuBar}>
-          <button className={style.Item}>
-            <p className={style.ButtonTitle}>Explore products</p>
-          </button>
-          <button className={style.Item}>
-            <p className={style.ButtonTitle}>Contact us</p>
-          </button>
+          <MenuBar />
         </div>
         <div className={style.Text}>
           <div className={style.Name}>

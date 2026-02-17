@@ -25,8 +25,8 @@
 
 .GlassCard {
   background: rgba(255,255,255,0.10);
-  backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(1px) saturate(180%);
   border-radius: 20px;
   padding: 25px;
   border: 1px solid rgba(255,255,255,0.4);
@@ -42,6 +42,32 @@
   place-self: center;
   max-width: 100%;
   max-height: 100%;
+}
+
+.Title {
+  place-self: center;
+  margin: 0;
+}
+
+.UpperLine {
+  margin-right: 40vw;
+  place-self: end;
+  display: flex;
+  gap: 3rem;
+}
+
+.UpperLineTextBox {
+  display: grid;
+  width: 20vw;
+}
+
+.UpperLineTitle {
+  place-self: center;
+}
+
+.BackButton {
+  cursor: pointer;
+  /* padding: 0 1rem; */
 }
 
 @media (max-aspect-ratio:1.2/1) {

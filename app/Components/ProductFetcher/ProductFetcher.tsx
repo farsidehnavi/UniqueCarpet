@@ -1,7 +1,8 @@
+import { redirect } from "react-router-dom";
 import ProductList from "./../ProductList/ProductList";
 import { Suspense } from "react";
 
-type resault = {
+type Result = {
   Status: number;
   Categories: [
     {
@@ -23,12 +24,21 @@ type resault = {
   ];
 };
 
-const ProductFetcher = async () => {
-
+async function getProducts(): Promise<Result> {
   const res = await fetch(
-    "https://carpet-back-end.vercel.app/category/allFront"
+    "https://carpet-back-end.vercel.app/category/allFront",
+    { cache: "no-store" }, // or "force-cache" if you want caching
   );
-  const data: resault = await res.json();
+
+  if (!res.ok) {
+    redirect('/ConnectionFailed')
+  }
+
+  return res.json();
+}
+
+const ProductFetcher = async () => {
+  const data = await getProducts();
 
   return (
     <Suspense fallback={<>Loading ...</>}>
@@ -36,4 +46,5 @@ const ProductFetcher = async () => {
     </Suspense>
   );
 };
+
 export default ProductFetcher;
