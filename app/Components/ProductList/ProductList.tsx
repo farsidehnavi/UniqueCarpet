@@ -12,20 +12,22 @@ type ProductOrCategory = {
   parent_id?: number;
   description?: string;
   price?: number;
-}
+};
 
 type Result = {
   Status: number;
-  Categories: ProductOrCategory[]
-  Products: ProductOrCategory[]
+  Categories: ProductOrCategory[];
+  Products: ProductOrCategory[];
 };
 
 const ProductList = ({ data }: { data: Result }) => {
+  console.log(data);
+
   // Routing
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const query = searchParams.get("parent_id") || '[]';
+  const query = searchParams.get("parent_id") || "[]";
 
   // State
   const [Level, setLevel] = useState(0);
@@ -39,41 +41,53 @@ const ProductList = ({ data }: { data: Result }) => {
   };
 
   useEffect(() => {
-    if (query) {
+    if (JSON.parse(query).length) {
       const queryParsed = JSON.parse(query);
       console.log(queryParsed);
-      
+
       switch (queryParsed.length) {
         case 1:
           setLevel(1);
           setShowList(
-            data.Categories.filter((v) => typeof v.parent_id == "number" && v.parent_id == queryParsed[0]),
+            data.Categories.filter(
+              (v) =>
+                typeof v.parent_id == "number" && v.parent_id == queryParsed[0],
+            ),
           );
           ExploreProducts();
           break;
         case 2:
           setLevel(2);
           setShowList(
-            data.Products.filter((v) => typeof v.parent_id == "number" && v.parent_id == queryParsed[1]),
+            data.Products.filter(
+              (v) =>
+                typeof v.parent_id == "number" && v.parent_id == queryParsed[1],
+            ),
           );
           ExploreProducts();
           break;
         default:
-          console.log("failed");
+          console.log("Query reading failed.");
       }
     } else {
       setShowList(data.Categories.filter((v) => !v.parent_id));
+      console.log('Updated');
+      
     }
   }, [query]);
 
   useEffect(() => {
-    console.log('Level: ',Level);
-  },[Level])
+    console.log(ShowList);
+  }, [ShowList]);
+
+  useEffect(() => {
+    console.log("Level: ", Level);
+  }, [Level]);
 
   const Operator = (selectedId: number) => {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (query) {
+    if (JSON.parse(query).length) {
       const queryParsed = JSON.parse(query);
       switch (queryParsed.length) {
         case 1:
@@ -103,13 +117,11 @@ const ProductList = ({ data }: { data: Result }) => {
             <p className={style.UpperLineTitle}>
               Category:{" "}
               {
-                data?.Categories?.find(
-                  (v) => {
-                    const parsed: number[] = JSON.parse(query)
-                    const last: number = parsed[parsed.length]
-                    return last
-                  }
-                )?.name
+                data?.Categories?.find((v) => {
+                  const parsed: number[] = JSON.parse(query);
+                  const last: number = parsed[parsed.length];
+                  return last;
+                })?.name
               }
             </p>
           </div>
