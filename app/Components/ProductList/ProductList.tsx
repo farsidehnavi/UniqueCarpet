@@ -27,7 +27,7 @@ const ProductList = ({ data }: { data: Result }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const query = searchParams.get("parent_id") || "[]";
+  const query = searchParams.get("parent_id") || '[]';
 
   // State
   const [Level, setLevel] = useState(0);
@@ -71,8 +71,7 @@ const ProductList = ({ data }: { data: Result }) => {
       }
     } else {
       setShowList(data.Categories.filter((v) => !v.parent_id));
-      console.log('Updated');
-      
+      console.log("Updated");
     }
   }, [query]);
 
@@ -91,7 +90,7 @@ const ProductList = ({ data }: { data: Result }) => {
       const queryParsed = JSON.parse(query);
       switch (queryParsed.length) {
         case 1:
-          params.set("parent_id", JSON.stringify([query[0], selectedId]));
+          params.set("parent_id", JSON.stringify([queryParsed[0], selectedId]));
           break;
         case 2:
           break;
@@ -105,6 +104,21 @@ const ProductList = ({ data }: { data: Result }) => {
     router.push(`${pathname}?${params.toString()}`);
   };
 
+  const BackOperator = () => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (JSON.parse(query).length == 2) {
+      setLevel(1)
+      const queryParsed = JSON.parse(query);
+      params.set("parent_id", JSON.stringify([queryParsed[0]]));
+    } else {
+      setLevel(0);
+      params.delete("parent_id");
+    }
+
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <div className={style.Main}>
       <p className={style.HeadText}>
@@ -112,15 +126,17 @@ const ProductList = ({ data }: { data: Result }) => {
       </p>
       {Level > 0 ? (
         <div className={style.UpperLine}>
-          <FaArrowLeft className={style.BackButton} />
+          <FaArrowLeft className={style.BackButton} onClick={BackOperator} />
           <div className={style.UpperLineTextBox}>
             <p className={style.UpperLineTitle}>
               Category:{" "}
               {
                 data?.Categories?.find((v) => {
                   const parsed: number[] = JSON.parse(query);
-                  const last: number = parsed[parsed.length];
-                  return last;
+                  const last: number = parsed[parsed.length - 1];
+                  console.log(parsed);
+
+                  return v.id == last;
                 })?.name
               }
             </p>

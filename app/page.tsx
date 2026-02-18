@@ -59,16 +59,6 @@ export default function Home() {
           <MenuBar />
         </div>
         <div className={style.Text}>
-          <div className={style.Name}>
-            <Image
-              className={style.Logo}
-              src={"img/logo.svg"}
-              height={70}
-              width={70}
-              alt=""
-            />
-            <p className={style.Pr1}>Unique Carpet</p>
-          </div>
           <p className={style.Pr2}>
             Handmade Persian Rugs: One of The Most Valuable Oriental Carpets
           </p>

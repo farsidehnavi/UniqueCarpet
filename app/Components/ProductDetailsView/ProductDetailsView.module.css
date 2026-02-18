@@ -1,0 +1,11 @@
+.Main {
+  width: 100vw;
+}
+
+.TimeLine {
+  display: flex;
+}
+
+.ItemText {
+  color: gray;
+}

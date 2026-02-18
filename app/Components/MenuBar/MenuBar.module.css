@@ -45,3 +45,31 @@
   margin: 0;
   place-self: center;
 }
+
+.Name {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  place-self: center;
+}
+
+.Logo {
+  place-self: end;
+  margin-bottom: -0.8rem;
+  padding: 0 0.5rem;
+  z-index: 1;
+}
+
+.LogoParent {
+  width: 100vw;
+  display: flex;
+  place-content: space-around;
+}
+
+.Pr1 {
+  font-size: 1.5rem;
+  place-self: center;
+  margin: 0;
+  font-family: Round;
+  z-index: 1;
+}
