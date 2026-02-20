@@ -2,7 +2,7 @@ import { redirect } from "react-router-dom";
 import Image from "next/image";
 import style from "./page.module.css";
 import MenuBar from "../Components/MenuBar/MenuBar";
-import ProductDetlaisView from "../Components/ProductDetailsView/ProductDetailsView";
+import ProductDetailsView from "../Components/ProductDetailsView/ProductDetailsView";
 
 type Product = {
   id: number;
@@ -34,7 +34,7 @@ const ProductView = async ({ params }: { params: Promise<{ id: string }> }) => {
       <div className={style.MenuBar}>
         <MenuBar />
       </div>
-      <ProductDetlaisView data={data} />
+      <ProductDetailsView data={data} />
       {/* <div className={style.wrapper}>
         <svg
           className={style.svg}
