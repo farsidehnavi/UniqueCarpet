@@ -1,16 +1,18 @@
 import { redirect } from "react-router-dom";
-import Image from "next/image";
 import style from "./page.module.css";
 import MenuBar from "../Components/MenuBar/MenuBar";
 import ProductDetailsView from "../Components/ProductDetailsView/ProductDetailsView";
 
 type Product = {
-  id: number;
-  name: string;
-  image_url: string[];
-  description: string;
-  price: number;
-  parent_id: number;
+  Status: number;
+  Data: {
+    id: number;
+    name: string;
+    image_url: string[];
+    description: string;
+    price: number;
+    parent_id: number;
+  };
 };
 
 const FetchProduct = async (id: string): Promise<Product> => {
@@ -22,7 +24,7 @@ const FetchProduct = async (id: string): Promise<Product> => {
     redirect("/ConnectionFailed");
   }
 
-  return res.json();
+  return res.json()
 };
 
 const ProductView = async ({ params }: { params: Promise<{ id: string }> }) => {

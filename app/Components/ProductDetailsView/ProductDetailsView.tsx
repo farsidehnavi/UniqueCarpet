@@ -29,7 +29,7 @@ const ProductDetailsView = ({ data }: { data: Product }) => {
         <p className={style.ItemText}>Isfahan</p>
         <FaAngleRight className={style.ArrowIcon} />
         <p className={`${style.ItemText} ${style.CurrentItem}`}>
-          Isfahan 3*4 Abrisham
+          {data.Data.name}
         </p>
       </div>
       <div className={style.FirstRow}>
@@ -67,6 +67,7 @@ const ProductDetailsView = ({ data }: { data: Product }) => {
           <div className={style.ImageList}>
             {data.Data.image_url.map((v, k) => (
               <img
+                alt=""
                 src={"https://carpet-back-end.vercel.app/img/images/" + v}
                 className={style.ImageInLine}
                 key={k}
