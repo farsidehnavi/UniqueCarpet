@@ -1,0 +1,25 @@
+.GlassCard {
+  background: rgba(255,255,255,0.1);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(1px) saturate(180%);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  color: #fff;
+  width: 15vw;
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+  cursor: pointer;
+}
+
+.ItemImage {
+  place-self: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.Title {
+  place-self: center;
+  margin: 0;
+}

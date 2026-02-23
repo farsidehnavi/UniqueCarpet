@@ -4,6 +4,7 @@ import style from "./ProductList.module.css";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
+import Product from "./../Product/Product";
 
 type ProductOrCategory = {
   id: number;
@@ -27,7 +28,7 @@ const ProductList = ({ data }: { data: Result }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const query = searchParams.get("parent_id") || '[]';
+  const query = searchParams.get("parent_id") || "[]";
 
   // State
   const [Level, setLevel] = useState(0);
@@ -83,32 +84,11 @@ const ProductList = ({ data }: { data: Result }) => {
     console.log("Level: ", Level);
   }, [Level]);
 
-  const Operator = (selectedId: number) => {
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (JSON.parse(query).length) {
-      const queryParsed = JSON.parse(query);
-      switch (queryParsed.length) {
-        case 1:
-          params.set("parent_id", JSON.stringify([queryParsed[0], selectedId]));
-          break;
-        case 2:
-          break;
-        default:
-          console.log("failed");
-      }
-    } else {
-      params.set("parent_id", JSON.stringify([selectedId]));
-    }
-
-    router.push(`${pathname}?${params.toString()}`);
-  };
-
   const BackOperator = () => {
     const params = new URLSearchParams(searchParams.toString());
 
     if (JSON.parse(query).length == 2) {
-      setLevel(1)
+      setLevel(1);
       const queryParsed = JSON.parse(query);
       params.set("parent_id", JSON.stringify([queryParsed[0]]));
     } else {
@@ -147,28 +127,7 @@ const ProductList = ({ data }: { data: Result }) => {
         <>
           <div className={style.CardsParent}>
             {ShowList.map((v, k) => (
-              <div
-                className={style.GlassCard}
-                key={k}
-                onClick={() => {
-                  if (Level == 2) {
-                    router.push(`/${v.id}`);
-                  } else {
-                    Operator(v.id);
-                  }
-                }}
-              >
-                {v.image_url[0] ? (
-                  <img
-                    className={style.ItemImage}
-                    src={
-                      "https://carpet-back-end.vercel.app/img/images/" +
-                      v.image_url[0]
-                    }
-                  />
-                ) : null}
-                <p className={style.Title}>{v.name}</p>
-              </div>
+              <Product key={k} data={v} Level={Level} />
             ))}
           </div>
         </>

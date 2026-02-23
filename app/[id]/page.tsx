@@ -2,20 +2,39 @@ import { redirect } from "react-router-dom";
 import style from "./page.module.css";
 import MenuBar from "../Components/MenuBar/MenuBar";
 import ProductDetailsView from "../Components/ProductDetailsView/ProductDetailsView";
+import Footer from "../Components/Footer/Footer";
 
-type Product = {
-  Status: number;
-  Data: {
-    id: number;
-    name: string;
-    image_url: string[];
-    description: string;
-    price: number;
-    parent_id: number;
-  };
+type Category = {
+  id: number;
+  name: string;
+  image_url: string[];
+  parent_id: number;
 };
 
-const FetchProduct = async (id: string): Promise<Product> => {
+type Product = {
+  id: number;
+  name: string;
+  image_url: string[];
+  description: string;
+  price: number;
+  parent_id: number;
+};
+
+type GetById = {
+  Status: number;
+  Data: Category & {
+    Child: Category & {
+      Child: Product
+    }
+  }
+}
+
+type RelatedProducts = {
+  Status: number;
+  Data: Product[]
+}
+
+const FetchProduct = async (id: string): Promise<GetById> => {
   const res = await fetch(`https://carpet-back-end.vercel.app/product/${id}`, {
     cache: "no-store",
   });
@@ -24,7 +43,19 @@ const FetchProduct = async (id: string): Promise<Product> => {
     redirect("/ConnectionFailed");
   }
 
-  return res.json()
+  return res.json();
+};
+
+const FetchRelatedProducts = async (id: string): Promise<RelatedProducts> => {
+  const res = await fetch(`https://carpet-back-end.vercel.app/product/all?parent_id=${id}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    redirect("/ConnectionFailed");
+  }
+
+  return res.json();
 };
 
 const ProductView = async ({ params }: { params: Promise<{ id: string }> }) => {
@@ -37,6 +68,14 @@ const ProductView = async ({ params }: { params: Promise<{ id: string }> }) => {
         <MenuBar />
       </div>
       <ProductDetailsView data={data} />
+      <hr className={style.Line} />
+      <div className={style.RelatedProduct}>
+        <p className={style.Label}>Related products</p>
+        <div className={style.ProductsParent}>
+
+        </div>
+      </div>
+      <Footer />
       {/* <div className={style.wrapper}>
         <svg
           className={style.svg}

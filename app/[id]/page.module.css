@@ -39,6 +39,12 @@
   place-content: space-between;
 }
 
+.Line {
+  border-color: gray;
+  width: 80%;
+  place-self: center;
+}
+
 @media (max-aspect-ratio: 1/1.1) {
   .bottom {
     d: path(

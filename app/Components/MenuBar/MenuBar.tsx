@@ -6,25 +6,28 @@ import Image from "next/image";
 
 import "./../../font.css";
 
-const MenuBar = () => {
-
+const MenuBar = ({
+  ExploreProductsFunc,
+}: {
+  ExploreProductsFunc?: () => void;
+}) => {
   const ExploreProducts = () => {
     window.scroll({
       top: 1050,
-      behavior: 'smooth'
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   const ContactUs = () => {
     window.scroll({
       top: document.body.scrollHeight,
-      behavior: 'smooth'
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
-      <button className={style.Item} onClick={ExploreProducts}>
+      <button className={style.Item} onClick={ExploreProductsFunc != null ? ExploreProductsFunc : ExploreProducts}>
         <p className={style.ButtonTitle}>Explore products</p>
         <FaArrowRight className={style.Icon} />
       </button>
