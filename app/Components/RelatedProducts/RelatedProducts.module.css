@@ -1,0 +1,24 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.Line {
+  border-color: gray;
+  width: 80%;
+  place-self: center;
+}
+
+.Label {
+  place-self: center;
+}
+
+.ProductsParent {
+  display: flex;
+  max-width: 100%;
+  place-self: center;
+  gap: .5rem;
+  overflow-y: scroll;
+  padding: 2% 5%;
+}

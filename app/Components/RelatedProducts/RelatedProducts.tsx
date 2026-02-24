@@ -3,7 +3,6 @@ import "server-only";
 import style from "./RelatedProducts.module.css";
 import { redirect } from "react-router-dom";
 import Product from "./../Product/Product";
-import { useRouter } from "next/navigation";
 
 type Product = {
   id: number;
@@ -35,25 +34,16 @@ const FetchRelatedProducts = async (id: number): Promise<RelatedProducts> => {
 };
 
 const RelatedProducts = async ({ id }: { id: number }) => {
-  // Routing
-  const router = useRouter();
-
   const data = await FetchRelatedProducts(id);
-
-  const Operator = (id: number) => {
-    router.push(`/${id}`);
-  };
 
   return (
     <div className={style.Main}>
       <hr className={style.Line} />
-      <div className={style.RelatedProduct}>
-        <p className={style.Label}>Related products</p>
-        <div className={style.ProductsParent}>
-          {data.Data.map((v, k) => (
-            <Product data={v} key={k} OnClick={} />
-          ))}
-        </div>
+      <p className={style.Label}>Related products</p>
+      <div className={style.ProductsParent}>
+        {data.Data.map((v, k) => (
+          <Product data={v} key={k} />
+        ))}
       </div>
     </div>
   );
