@@ -4,6 +4,7 @@ import "./font.css";
 import "./globals.css";
 import ProductFetcher from "./Components/ProductFetcher/ProductFetcher";
 import MenuBar from "./Components/MenuBar/MenuBar";
+import Footer from "./Components/Footer/Footer";
 
 export default function Home() {
   const T1 = `Handmade Persian rugs and carpets are the most durable and exquisite
@@ -151,6 +152,7 @@ export default function Home() {
         </p>
         <p className={style.Pr3}>{T1}</p>
       </div>
+      <Footer />
     </>
   );
 }

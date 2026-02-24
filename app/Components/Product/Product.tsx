@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import style from "./Product.module.css";
 
 type ProductOrCategory = {
@@ -14,51 +13,16 @@ type ProductOrCategory = {
 
 const Product = ({
   data,
-  Level,
+  OnClick,
 }: {
   data: ProductOrCategory;
-  Level: number;
+  OnClick: (id: number) => void;
 }) => {
-  // Routing
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const query = searchParams.get("parent_id") || "[]";
-
-  console.log(Level);
-  
-
-  const Operator = (selectedId: number) => {
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (JSON.parse(query).length) {
-      const queryParsed = JSON.parse(query);
-      switch (queryParsed.length) {
-        case 1:
-          params.set("parent_id", JSON.stringify([queryParsed[0], selectedId]));
-          break;
-        case 2:
-          break;
-        default:
-          console.log("failed");
-      }
-    } else {
-      params.set("parent_id", JSON.stringify([selectedId]));
-    }
-
-    router.push(`${pathname}?${params.toString()}`);
-  };
 
   return (
     <div
       className={style.GlassCard}
-      onClick={() => {
-        if (Level == 2) {
-          router.push(`/${data.id}`);
-        } else {
-          Operator(data.id);
-        }
-      }}
+      onClick={() => OnClick(data.id)}
     >
       {data.image_url[0] ? (
         <img

@@ -1,8 +1,12 @@
+import "server-only";
+
 import { redirect } from "react-router-dom";
 import style from "./page.module.css";
 import MenuBar from "../Components/MenuBar/MenuBar";
 import ProductDetailsView from "../Components/ProductDetailsView/ProductDetailsView";
 import Footer from "../Components/Footer/Footer";
+import { Suspense } from "react";
+import RelatedProducts from "../Components/RelatedProducts/RelatedProducts";
 
 type Category = {
   id: number;
@@ -24,30 +28,13 @@ type GetById = {
   Status: number;
   Data: Category & {
     Child: Category & {
-      Child: Product
-    }
-  }
-}
-
-type RelatedProducts = {
-  Status: number;
-  Data: Product[]
-}
+      Child: Product;
+    };
+  };
+};
 
 const FetchProduct = async (id: string): Promise<GetById> => {
   const res = await fetch(`https://carpet-back-end.vercel.app/product/${id}`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    redirect("/ConnectionFailed");
-  }
-
-  return res.json();
-};
-
-const FetchRelatedProducts = async (id: string): Promise<RelatedProducts> => {
-  const res = await fetch(`https://carpet-back-end.vercel.app/product/all?parent_id=${id}`, {
     cache: "no-store",
   });
 
@@ -68,13 +55,9 @@ const ProductView = async ({ params }: { params: Promise<{ id: string }> }) => {
         <MenuBar />
       </div>
       <ProductDetailsView data={data} />
-      <hr className={style.Line} />
-      <div className={style.RelatedProduct}>
-        <p className={style.Label}>Related products</p>
-        <div className={style.ProductsParent}>
-
-        </div>
-      </div>
+      <Suspense fallback={<p>Loading ...</p>}>
+        <RelatedProducts id={data.Data.Child.id} />
+      </Suspense>
       <Footer />
       {/* <div className={style.wrapper}>
         <svg

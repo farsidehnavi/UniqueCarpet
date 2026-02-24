@@ -22,8 +22,6 @@ type Result = {
 };
 
 const ProductList = ({ data }: { data: Result }) => {
-  console.log(data);
-
   // Routing
   const router = useRouter();
   const pathname = usePathname();
@@ -99,6 +97,35 @@ const ProductList = ({ data }: { data: Result }) => {
     router.push(`${pathname}?${params.toString()}`);
   };
 
+  const Operator = (selectedId: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (JSON.parse(query).length) {
+      const queryParsed = JSON.parse(query);
+      switch (queryParsed.length) {
+        case 1:
+          params.set("parent_id", JSON.stringify([queryParsed[0], selectedId]));
+          break;
+        case 2:
+          break;
+        default:
+          console.log("failed");
+      }
+    } else {
+      params.set("parent_id", JSON.stringify([selectedId]));
+    }
+
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
+  const ProductOnClick = (id: number) => {
+    if (Level == 2) {
+      router.push(`/${id}`);
+    } else {
+      Operator(id);
+    }
+  }
+
   return (
     <div className={style.Main}>
       <p className={style.HeadText}>
@@ -127,7 +154,7 @@ const ProductList = ({ data }: { data: Result }) => {
         <>
           <div className={style.CardsParent}>
             {ShowList.map((v, k) => (
-              <Product key={k} data={v} Level={Level} />
+              <Product key={k} data={v} OnClick={ProductOnClick} />
             ))}
           </div>
         </>
