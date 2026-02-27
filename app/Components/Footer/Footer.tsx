@@ -6,6 +6,7 @@ import {
   FaAt,
   FaMapMarker,
   FaPhoneAlt,
+  FaInstagram
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -67,11 +68,27 @@ const Footer = () => {
               Best collection of handmade Persian Carpet, Kilim & Gabeh
             </p>
             <div className={style.ConnectionIcons}>
-              <FaWhatsapp className={style.ConnectionButton} />
-              <FaTelegram className={style.ConnectionButton} />
-              <FaAt className={style.ConnectionButton} />
-              <FaMapMarker className={style.ConnectionButton} />
-              <FaPhoneAlt className={style.ConnectionButton} />
+              <a href="https://wa.me/989131643499" target="_blank">
+                <FaWhatsapp className={style.ConnectionButton} />
+              </a>
+              <a href="https://t.me/uniquecarpet20" target="_blank">
+                <FaTelegram className={style.ConnectionButton} />
+              </a>
+              <a href="mailto:uniquecarpet.mo@hotmail.com">
+                <FaAt className={style.ConnectionButton} />
+              </a>
+              <a
+                href="https://maps.app.goo.gl/rsveFbo53ytjx5JL9"
+                target="_blank"
+              >
+                <FaMapMarker className={style.ConnectionButton} />
+              </a>
+              <a href="tel:+989131643499">
+                <FaPhoneAlt className={style.ConnectionButton} />
+              </a>
+              <a href="https://instagram.com/USERNAME" target="_blank">
+                <FaInstagram className={style.ConnectionButton} />
+              </a>
             </div>
           </div>
           {/* <div className={style.InnerFlex}>
