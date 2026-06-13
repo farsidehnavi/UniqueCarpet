@@ -1,0 +1,8 @@
+.Main {
+  border-radius: 1000px;
+  display: flex;
+}
+
+.Icon {
+  height: 5vh;
+}

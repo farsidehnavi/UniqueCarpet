@@ -18,7 +18,7 @@ const useSendApi = () => {
   ) => {
     try {
       const response = await axios.get(
-        "https://carpet-back-end.vercel.app" + Url,
+        "http://localhost:3000" + Url,
         Data
       );
       if (response.data.msg == 0) {

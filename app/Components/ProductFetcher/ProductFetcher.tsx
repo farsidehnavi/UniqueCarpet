@@ -19,7 +19,7 @@ type Result = {
 
 async function getProducts(): Promise<Result> {
   const res = await fetch(
-    "https://carpet-back-end.vercel.app/category/allFront",
+    "http://localhost:3000/category/allFront",
     { cache: "no-store" }, // or "force-cache" if you want caching
   );
 

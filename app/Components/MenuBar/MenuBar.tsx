@@ -4,6 +4,8 @@ import style from "./MenuBar.module.css";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
+import LangButton from "../LangButton/LangButton";
+
 import "./../../font.css";
 
 const MenuBar = ({
@@ -31,6 +33,7 @@ const MenuBar = ({
         <p className={style.ButtonTitle}>Explore products</p>
         <FaArrowRight className={style.Icon} />
       </button>
+      <LangButton />
       <div className={style.LogoParent}>
         <div className={style.Name}>
           <Image

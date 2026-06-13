@@ -60,7 +60,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             />
             <img
               src={
-                "https://carpet-back-end.vercel.app/img/images/" +
+                "http://localhost:3001/images/" +
                 data.Data.Child.Child.image_url[OpenImageIndex]
               }
               alt=""
@@ -81,7 +81,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             {data.Data.Child.Child.image_url.map((v, k) => (
               <img
                 alt=""
-                src={"https://carpet-back-end.vercel.app/img/images/" + v}
+                src={"http://localhost:3001/images/" + v}
                 className={style.ImageInLine}
                 key={k}
                 onClick={() => {

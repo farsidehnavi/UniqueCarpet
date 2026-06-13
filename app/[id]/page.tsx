@@ -34,7 +34,7 @@ type GetById = {
 };
 
 const FetchProduct = async (id: string): Promise<GetById> => {
-  const res = await fetch(`https://carpet-back-end.vercel.app/product/${id}`, {
+  const res = await fetch(`http://localhost:3000/product/${id}`, {
     cache: "no-store",
   });
 

@@ -34,7 +34,7 @@ const Product = ({
         <img
           className={style.ItemImage}
           src={
-            "https://carpet-back-end.vercel.app/img/images/" + data.image_url[0]
+            "http://localhost:3001/images/" + data.image_url[0]
           }
         />
       ) : null}
