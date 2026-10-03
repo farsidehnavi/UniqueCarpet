@@ -15,15 +15,17 @@ type ProductOrCategory = {
 const Product = ({
   data,
   OnClick,
+  IsLightMode
 }: {
   data: ProductOrCategory;
   OnClick?: (id: number) => void;
+  IsLightMode?: boolean;
 }) => {
   // Routing
   const router = useRouter();
 
   return (
-    <div className={style.GlassCard} onClick={() => {
+    <div className={`${style.GlassCard} ${IsLightMode ? style.GlassCardLight : ''}`} onClick={() => {
       if (OnClick) {
         OnClick(data.id)
       } else {

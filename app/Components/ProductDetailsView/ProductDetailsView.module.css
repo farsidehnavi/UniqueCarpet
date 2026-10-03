@@ -80,3 +80,24 @@
   padding: .5rem;
   cursor: pointer;
 }
+
+@media (max-aspect-ratio: 1/1) {
+  .TimeLine {
+    display: none;
+  }
+
+  .FirstRow {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+
+  .ImageParent {
+    height: 80vw;
+  }
+
+  .RightSection {
+    padding: 0 1rem;
+  }
+}

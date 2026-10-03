@@ -37,6 +37,12 @@
   text-shadow: 0 0 6px rgba(212, 180, 140, 0.4);
 }
 
+@media (max-aspect-ratio: 1/1) {
+  .Item {
+    display: none;
+  }
+}
+
 .Icon {
   place-self: center;
 }
@@ -51,6 +57,7 @@
   flex-direction: column;
   width: fit-content;
   place-self: center;
+  cursor: pointer;
 }
 
 .Logo {

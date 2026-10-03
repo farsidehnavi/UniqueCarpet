@@ -15,10 +15,12 @@
 }
 
 .ProductsParent {
-  display: flex;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
   max-width: 100%;
   place-self: center;
   gap: .5rem;
-  overflow-y: scroll;
+  overflow-x: scroll;
   padding: 2% 5%;
 }

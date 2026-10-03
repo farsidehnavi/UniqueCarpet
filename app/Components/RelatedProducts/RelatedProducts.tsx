@@ -33,16 +33,25 @@ const FetchRelatedProducts = async (id: number): Promise<RelatedProducts> => {
   return res.json();
 };
 
-const RelatedProducts = async ({ id }: { id: number }) => {
-  const data = await FetchRelatedProducts(id);
+const RelatedProducts = async ({ ParentId, CurrentId }: { ParentId: number, CurrentId: number }) => {
+  const data = await FetchRelatedProducts(ParentId);
+
+  const FilteredData = Object.values(data.Data).filter(v => {
+    return v.id != CurrentId
+  })
+
+  console.log(FilteredData);
+  console.log(data.Data);
+  
+  
 
   return (
     <div className={style.Main}>
       <hr className={style.Line} />
       <p className={style.Label}>Related products</p>
       <div className={style.ProductsParent}>
-        {data.Data.map((v, k) => (
-          <Product data={v} key={k} />
+        {FilteredData.map((v, k) => (
+          <Product data={v} key={k} IsLightMode={true} />
         ))}
       </div>
     </div>

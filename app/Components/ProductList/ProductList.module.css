@@ -32,10 +32,11 @@
 
 .UpperLineTextBox {
   display: grid;
-  width: 20vw;
+  width: 80%;
 }
 
 .UpperLineTitle {
+  font-size: large;
   place-self: center;
 }
 

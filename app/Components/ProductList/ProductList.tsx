@@ -3,7 +3,7 @@
 import style from "./ProductList.module.css";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
 import Product from "./../Product/Product";
 
 type ProductOrCategory = {
@@ -33,16 +33,22 @@ const ProductList = ({ data }: { data: Result }) => {
   const [ShowList, setShowList] = useState<ProductOrCategory[]>([]);
 
   const ExploreProducts = () => {
-    window.scroll({
-      top: 1050,
-      behavior: "smooth",
-    });
+    if (window.innerWidth / window.innerHeight > 1)
+      window.scroll({
+        top: 1050,
+        behavior: "smooth",
+      });
+    else {
+      window.scroll({
+        top: 1720,
+        behavior: "smooth",
+      });
+    }
   };
 
   useEffect(() => {
     if (JSON.parse(query).length) {
       const queryParsed = JSON.parse(query);
-      console.log(queryParsed);
 
       switch (queryParsed.length) {
         case 1:
@@ -69,6 +75,7 @@ const ProductList = ({ data }: { data: Result }) => {
           console.log("Query reading failed.");
       }
     } else {
+      setLevel(0);
       setShowList(data.Categories.filter((v) => !v.parent_id));
       console.log("Updated");
     }
@@ -124,14 +131,14 @@ const ProductList = ({ data }: { data: Result }) => {
     } else {
       Operator(id);
     }
-  }
+  };
 
   return (
     <div className={style.Main}>
       <p className={style.HeadText}>
         Explore {Level == 2 ? "Products" : "Categories"}
       </p>
-      {Level > 0 ? (
+      {/* {Level > 0 ? (
         <div className={style.UpperLine}>
           <FaArrowLeft className={style.BackButton} onClick={BackOperator} />
           <div className={style.UpperLineTextBox}>
@@ -149,7 +156,50 @@ const ProductList = ({ data }: { data: Result }) => {
             </p>
           </div>
         </div>
-      ) : null}
+      ) : null} */}
+      {/* <>
+        <div className={style.TimeLine}>
+          <p className={style.ItemText} onClick={() => router.push("/")}>
+            Categories
+          </p>
+          {Level > 0 ? (
+            <>
+              <FaAngleRight className={style.ArrowIcon} />
+              <p
+                className={style.ItemText}
+                onClick={() => router.push(`/?parent_id=[${data.Data.id}]`)}
+              >
+                {data.Categories.find((i) => i.id == queryParsed)}
+                Problem
+              </p>
+            </>
+          ) : null}
+          {Level > 1 ? (
+            <>
+              <FaAngleRight className={style.ArrowIcon} />
+              <p
+                className={style.ItemText}
+                onClick={() => router.push(`/?parent_id=[${data.Data.id}]`)}
+              >
+                {data.Data.name}
+              </p>
+            </>
+          ) : null}
+          {/* <FaAngleRight className={style.ArrowIcon} />
+        <p
+        className={style.ItemText}
+        onClick={() =>
+        router.push(`/?parent_id=[${data.Data.id},${data.Data.Child.id}]`)
+        }
+        >
+        {data.Data.Child.name}
+        </p>
+        <FaAngleRight className={style.ArrowIcon} />
+        <p className={`${style.ItemText} ${style.CurrentItem}`}>
+        {data.Data.Child.Child.name}
+        </p>
+        </div>
+      </> */}
       {ShowList.length ? (
         <>
           <div className={style.CardsParent}>

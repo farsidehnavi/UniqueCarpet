@@ -3,6 +3,7 @@
 import style from "./MenuBar.module.css";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import LangButton from "../LangButton/LangButton";
 
@@ -13,6 +14,8 @@ const MenuBar = ({
 }: {
   ExploreProductsFunc?: () => void;
 }) => {
+  const router = useRouter();
+
   const ExploreProducts = () => {
     window.scroll({
       top: 1050,
@@ -29,13 +32,18 @@ const MenuBar = ({
 
   return (
     <>
-      <button className={style.Item} onClick={ExploreProductsFunc != null ? ExploreProductsFunc : ExploreProducts}>
+      <button
+        className={style.Item}
+        onClick={
+          ExploreProductsFunc != null ? ExploreProductsFunc : ExploreProducts
+        }
+      >
         <p className={style.ButtonTitle}>Explore products</p>
         <FaArrowRight className={style.Icon} />
       </button>
       <LangButton />
       <div className={style.LogoParent}>
-        <div className={style.Name}>
+        <div className={style.Name} onClick={() => router.push("/")}>
           <Image
             className={style.Logo}
             src={"img/logo.svg"}

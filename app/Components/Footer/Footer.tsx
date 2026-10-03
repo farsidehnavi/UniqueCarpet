@@ -86,7 +86,7 @@ const Footer = () => {
               <a href="tel:+989131643499">
                 <FaPhoneAlt className={style.ConnectionButton} />
               </a>
-              <a href="https://instagram.com/USERNAME" target="_blank">
+              <a href="https://instagram.com/carpet_unique" target="_blank">
                 <FaInstagram className={style.ConnectionButton} />
               </a>
             </div>
