@@ -34,7 +34,7 @@ type GetById = {
 };
 
 const FetchProduct = async (id: string): Promise<GetById> => {
-  const res = await fetch(`http://localhost:3000/product/${id}`, {
+  const res = await fetch(`http://193.163.201.24:3000/product/${id}`, {
     cache: "no-store",
   });
 

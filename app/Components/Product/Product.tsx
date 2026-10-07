@@ -25,19 +25,20 @@ const Product = ({
   const router = useRouter();
 
   return (
-    <div className={`${style.GlassCard} ${IsLightMode ? style.GlassCardLight : ''}`} onClick={() => {
-      if (OnClick) {
-        OnClick(data.id)
-      } else {
-        router.push(`/${data.id}`)
-      }
-    }}>
+    <div
+      className={`${style.GlassCard} ${IsLightMode ? style.GlassCardLight : ""}`}
+      onClick={() => {
+        if (OnClick) {
+          OnClick(data.id);
+        } else {
+          router.push(`/${data.id}`);
+        }
+      }}
+    >
       {data.image_url[0] ? (
         <img
           className={style.ItemImage}
-          src={
-            "http://localhost:3001/images/" + data.image_url[0]
-          }
+          src={"http://193.163.201.24:3001/images/" + data.image_url[0]}
         />
       ) : null}
       <p className={style.Title}>{data.name}</p>

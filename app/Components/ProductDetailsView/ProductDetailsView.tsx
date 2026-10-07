@@ -40,10 +40,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
   return (
     <div className={style.Main}>
       <div className={style.TimeLine}>
-        <p
-          className={style.ItemText}
-          onClick={() => router.push('/')}
-        >
+        <p className={style.ItemText} onClick={() => router.push("/")}>
           Categories
         </p>
         <FaAngleRight className={style.ArrowIcon} />
@@ -82,7 +79,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             />
             <img
               src={
-                "http://localhost:3001/images/" +
+                "http://193.163.201.24:3001/images/" +
                 data.Data.Child.Child.image_url[OpenImageIndex]
               }
               alt=""
@@ -106,7 +103,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             {data.Data.Child.Child.image_url.map((v, k) => (
               <img
                 alt=""
-                src={"http://localhost:3001/images/" + v}
+                src={"http://193.163.201.24:3001/images/" + v}
                 className={style.ImageInLine}
                 key={k}
                 onClick={() => {

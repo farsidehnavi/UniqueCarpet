@@ -18,8 +18,8 @@ const useSendApi = () => {
   ) => {
     try {
       const response = await axios.get(
-        "http://localhost:3000" + Url,
-        Data
+        "http://193.163.201.24:3000" + Url,
+        Data,
       );
       if (response.data.msg == 0) {
         console.log(Data?.class_name+' '+Data?.function_name,response);

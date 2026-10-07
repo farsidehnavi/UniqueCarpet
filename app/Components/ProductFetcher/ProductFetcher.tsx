@@ -19,7 +19,7 @@ type Result = {
 
 async function getProducts(): Promise<Result> {
   const res = await fetch(
-    "http://localhost:3000/category/allFront",
+    "http://193.163.201.24:3000/category/allFront",
     { cache: "no-store" }, // or "force-cache" if you want caching
   );
 

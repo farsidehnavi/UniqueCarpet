@@ -20,7 +20,7 @@ type RelatedProducts = {
 
 const FetchRelatedProducts = async (id: number): Promise<RelatedProducts> => {
   const res = await fetch(
-    `http://localhost:3000/product/all?parent_id=${id}`,
+    `http://193.163.201.24:3000/product/all?parent_id=${id}`,
     {
       cache: "no-store",
     },
@@ -42,7 +42,7 @@ const RelatedProducts = async ({ ParentId, CurrentId }: { ParentId: number, Curr
 
   console.log(FilteredData);
   console.log(data.Data);
-  
+
   
 
   return (
