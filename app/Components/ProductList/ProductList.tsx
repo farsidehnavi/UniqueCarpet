@@ -40,7 +40,7 @@ const ProductList = ({ data }: { data: Result }) => {
       });
     else {
       window.scroll({
-        top: 1720,
+        top: 1800,
         behavior: "smooth",
       });
     }
