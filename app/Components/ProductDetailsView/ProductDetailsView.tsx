@@ -5,29 +5,19 @@ import style from "./ProductDetailsView.module.css";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
-type Category = {
-  id: number;
-  name: string;
-  image_url: string[];
-  parent_id: number;
-};
-
 type Product = {
   id: number;
   name: string;
+  name_fa: string;
   image_url: string[];
-  description: string;
-  price: number;
-  parent_id: number;
+  description?: string;
+  description_fa?: string;
+  price?: number;
 };
 
 type GetById = {
   Status: number;
-  Data: Category & {
-    Child: Category & {
-      Child: Product;
-    };
-  };
+  Data: Product;
 };
 
 const ProductDetailsView = ({ data }: { data: GetById }) => {
@@ -41,27 +31,11 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
     <div className={style.Main}>
       <div className={style.TimeLine}>
         <p className={style.ItemText} onClick={() => router.push("/")}>
-          Categories
-        </p>
-        <FaAngleRight className={style.ArrowIcon} />
-        <p
-          className={style.ItemText}
-          onClick={() => router.push(`/?parent_id=[${data.Data.id}]`)}
-        >
-          {data.Data.name}
-        </p>
-        <FaAngleRight className={style.ArrowIcon} />
-        <p
-          className={style.ItemText}
-          onClick={() =>
-            router.push(`/?parent_id=[${data.Data.id},${data.Data.Child.id}]`)
-          }
-        >
-          {data.Data.Child.name}
+          Products
         </p>
         <FaAngleRight className={style.ArrowIcon} />
         <p className={`${style.ItemText} ${style.CurrentItem}`}>
-          {data.Data.Child.Child.name}
+          {data.Data.name}
         </p>
       </div>
       <div className={style.FirstRow}>
@@ -73,14 +47,14 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
                 if (OpenImageIndex) {
                   setOpenImageIndex((v) => v - 1);
                 } else {
-                  setOpenImageIndex(data.Data.Child.Child.image_url.length - 1);
+                  setOpenImageIndex(data.Data.image_url.length - 1);
                 }
               }}
             />
             <img
               src={
                 "http://193.163.201.24:3001/images/" +
-                data.Data.Child.Child.image_url[OpenImageIndex]
+                data.Data.image_url[OpenImageIndex]
               }
               alt=""
               className={style.MainImg}
@@ -90,7 +64,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
               onClick={() => {
                 if (
                   OpenImageIndex <
-                  data.Data.Child.Child.image_url.length - 1
+                  data.Data.image_url.length - 1
                 ) {
                   setOpenImageIndex((v) => v + 1);
                 } else {
@@ -100,7 +74,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             />
           </div>
           <div className={style.ImageList}>
-            {data.Data.Child.Child.image_url.map((v, k) => (
+            {data.Data.image_url.map((v, k) => (
               <img
                 alt=""
                 src={"http://193.163.201.24:3001/images/" + v}
@@ -114,15 +88,15 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
           </div>
         </div>
         <div className={style.RightSection}>
-          <p className={style.Name}>{data.Data.Child.Child.name}</p>
-          <p className={style.Price}>
-            {data.Data.Child.Child.price
+          <p className={style.Name}>{data.Data.name}</p>
+          {data.Data.price ? <p className={style.Price}>
+            {data.Data.price
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             T
-          </p>
+          </p> : ''}
           <p className={style.Description}>
-            {data.Data.Child.Child.description}
+            {data.Data.description}
           </p>
         </div>
       </div>

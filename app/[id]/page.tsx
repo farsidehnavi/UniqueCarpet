@@ -8,29 +8,19 @@ import Footer from "../Components/Footer/Footer";
 import { Suspense } from "react";
 import RelatedProducts from "../Components/RelatedProducts/RelatedProducts";
 
-type Category = {
-  id: number;
-  name: string;
-  image_url: string[];
-  parent_id: number;
-};
-
 type Product = {
   id: number;
   name: string;
+  name_fa: string;
   image_url: string[];
-  description: string;
-  price: number;
-  parent_id: number;
+  description?: string;
+  description_fa?: string;
+  price?: number;
 };
 
 type GetById = {
   Status: number;
-  Data: Category & {
-    Child: Category & {
-      Child: Product;
-    };
-  };
+  Data: Product;
 };
 
 const FetchProduct = async (id: string): Promise<GetById> => {
@@ -57,7 +47,7 @@ const ProductView = async ({ params }: { params: Promise<{ id: string }> }) => {
       </div>
       <ProductDetailsView data={data} />
       <Suspense fallback={<p>Loading ...</p>}>
-        <RelatedProducts ParentId={data.Data.Child.id} CurrentId={data.Data.Child.Child.id} />
+        <RelatedProducts CurrentId={data.Data.id} />
       </Suspense>
       <Footer />
     </div>
