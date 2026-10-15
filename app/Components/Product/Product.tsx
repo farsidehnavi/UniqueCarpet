@@ -38,7 +38,7 @@ const Product = ({
       {data.image_url[0] ? (
         <img
           className={style.ItemImage}
-          src={"http://193.163.201.24:3001/images/" + data.image_url[0]}
+          src={"http://193.163.201.24:3000/img/images/" + data.image_url[0]}
         />
       ) : null}
       <p className={style.Title}>{data.name}</p>

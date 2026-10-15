@@ -53,7 +53,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             />
             <img
               src={
-                "http://193.163.201.24:3001/images/" +
+                "http://193.163.201.24:3000/img/images/" +
                 data.Data.image_url[OpenImageIndex]
               }
               alt=""
@@ -77,7 +77,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             {data.Data.image_url.map((v, k) => (
               <img
                 alt=""
-                src={"http://193.163.201.24:3001/images/" + v}
+                src={"http://193.163.201.24:3000/img/images/" + v}
                 className={style.ImageInLine}
                 key={k}
                 onClick={() => {
