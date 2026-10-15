@@ -1,4 +1,4 @@
-import { data, redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import ProductList from "./../ProductList/ProductList";
 import { Suspense } from "react";
 
@@ -18,16 +18,26 @@ type Result = {
 };
 
 async function getProducts(): Promise<Result> {
-  const res = await fetch(
-    "http://193.163.201.24:3000/product/all",
-    { cache: "no-store" }, // or "force-cache" if you want caching
-  );
+  let res
 
-  if (!res.ok) {
+  try {
+    
+    res = await fetch(
+      "https://carpet-backend-final.vercel.app/product/all",
+      { cache: "no-store" }, // or "force-cache" if you want caching
+    );
+  
+    if (!res.ok) {
+      redirect('/ConnectionFailed')
+    }
+
+  } catch (e) {
+    console.log(e);
+    
     redirect('/ConnectionFailed')
   }
 
-  return res.json();
+  return res?.json();
 }
 
 const ProductFetcher = async () => {

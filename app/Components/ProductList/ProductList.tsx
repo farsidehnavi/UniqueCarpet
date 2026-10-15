@@ -33,7 +33,7 @@ const ProductList = ({ data }: { data: Result }) => {
       <p className={style.HeadText}>
         Explore Products
       </p>
-      {data.Data.length ? (
+      {data?.Data.length ? (
         <>
           <div className={style.CardsParent}>
             {data.Data.map((v, k) => (

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import style from "./Product.module.css";
 import { useRouter } from "next/navigation";
 
@@ -38,7 +39,11 @@ const Product = ({
       {data.image_url[0] ? (
         <img
           className={style.ItemImage}
-          src={"http://193.163.201.24:3000/img/images/" + data.image_url[0]}
+          src={
+            "https://carpet-backend-final.vercel.app/img/images/" +
+            data.image_url[0]
+          }
+          alt=""
         />
       ) : null}
       <p className={style.Title}>{data.name}</p>

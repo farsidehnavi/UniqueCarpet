@@ -21,7 +21,7 @@ type RelatedProducts = {
 
 const FetchRelatedProducts = async (): Promise<RelatedProducts> => {
   const res = await fetch(
-    'http://193.163.201.24:3000/product/all',
+    "https://carpet-backend-final.vercel.app/product/all",
     {
       cache: "no-store",
     },

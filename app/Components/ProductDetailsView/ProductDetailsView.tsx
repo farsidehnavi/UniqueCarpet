@@ -4,6 +4,7 @@ import { useState } from "react";
 import style from "./ProductDetailsView.module.css";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type Product = {
   id: number;
@@ -53,7 +54,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             />
             <img
               src={
-                "http://193.163.201.24:3000/img/images/" +
+                "https://carpet-backend-final.vercel.app/img/images/" +
                 data.Data.image_url[OpenImageIndex]
               }
               alt=""
@@ -62,10 +63,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             <FaAngleRight
               className={style.Arrow}
               onClick={() => {
-                if (
-                  OpenImageIndex <
-                  data.Data.image_url.length - 1
-                ) {
+                if (OpenImageIndex < data.Data.image_url.length - 1) {
                   setOpenImageIndex((v) => v + 1);
                 } else {
                   setOpenImageIndex(0);
@@ -77,7 +75,7 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
             {data.Data.image_url.map((v, k) => (
               <img
                 alt=""
-                src={"http://193.163.201.24:3000/img/images/" + v}
+                src={"https://carpet-backend-final.vercel.app/img/images/" + v}
                 className={style.ImageInLine}
                 key={k}
                 onClick={() => {
@@ -89,15 +87,15 @@ const ProductDetailsView = ({ data }: { data: GetById }) => {
         </div>
         <div className={style.RightSection}>
           <p className={style.Name}>{data.Data.name}</p>
-          {data.Data.price ? <p className={style.Price}>
-            {data.Data.price
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            T
-          </p> : ''}
-          <p className={style.Description}>
-            {data.Data.description}
-          </p>
+          {data.Data.price ? (
+            <p className={style.Price}>
+              {data.Data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              T
+            </p>
+          ) : (
+            ""
+          )}
+          <p className={style.Description}>{data.Data.description}</p>
         </div>
       </div>
     </div>
